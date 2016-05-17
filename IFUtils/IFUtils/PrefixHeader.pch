@@ -1,0 +1,14 @@
+//
+//  PrefixHeader.pch
+//  IFUtils
+//
+//  Created by wangjian on 16/5/17.
+//  Copyright © 2016年 wangjian. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "IFUtils.h"
+
+#endif /* PrefixHeader_pch */
