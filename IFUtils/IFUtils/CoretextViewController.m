@@ -36,9 +36,10 @@
     .if_setTextFont([UIFont systemFontOfSize:15],NSMakeRange(0, string1.length))
     .if_setTextColor([UIColor blackColor],NSMakeRange(0, string1.length))
     .if_setTextColor([UIColor blueColor],NSMakeRange(10, 10))
-    .if_setBackgroundColor([UIColor lightGrayColor],NSMakeRange(0, 5));
+    .if_setBackgroundColor([UIColor lightGrayColor],NSMakeRange(0, 5))
+    .if_setBaselineOffset(5,NSMakeRange(4, 20));
     
-    string1.if_insertImage([UIImage imageNamed:@"4"],CGRectMake(5, 5, 40, 20),10);
+    string1.if_insertImage([UIImage imageNamed:@"haixiu"],CGRectMake(5, 5, 40, 20),10);
     
     CGFloat height =   string1.if_getHeightInWidth(300);
     

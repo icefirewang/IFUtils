@@ -14,6 +14,11 @@
 
 -(CGFloat)topOfSection:(NSInteger)tarSection
 {
+    CGFloat headerViewHeight = 0;
+    if (self.tableHeaderView != nil) {
+        headerViewHeight = self.tableHeaderView.height;
+    }
+    
     NSInteger totalSection = [self.dataSource numberOfSectionsInTableView:self];
     if (totalSection <= tarSection) {
         NSAssert(FALSE, @"tarSection too big");
@@ -21,13 +26,28 @@
     }
     
     NSInteger section = 0;
-    CGFloat ret = 0;
+    CGFloat ret = headerViewHeight;
+    
+    
+    BOOL responseSelectorCellHeight     =   [self.delegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)];
+    BOOL responseSelectorHeaderHeight   =   [self.delegate respondsToSelector:@selector(tableView:heightForHeaderInSection:)];
+    BOOL responseSelectorFooterHeight   =   [self.delegate respondsToSelector:@selector(tableView:heightForFooterInSection:)];
+    
+    
+    if (responseSelectorCellHeight == NO ||
+        responseSelectorFooterHeight == NO ||
+        responseSelectorHeaderHeight == NO) {
+        NSAssert(FALSE, @"");
+    }
+    
     while (section < tarSection) {
         NSInteger rowCount = [self.dataSource tableView:self numberOfRowsInSection:section];
         CGFloat sectionHeight = 0;
         CGFloat rowTotalHeight = 0;
         for (NSInteger row = 0; row < rowCount; row++) {
-            CGFloat rowHeight = [self.delegate tableView:self heightForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+            
+            CGFloat rowHeight = 0;
+            rowHeight = [self.delegate tableView:self heightForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
             rowTotalHeight += rowHeight;
         }
         CGFloat headerHeight = [self.delegate tableView:self heightForHeaderInSection:section];
@@ -39,8 +59,7 @@
         section++;
     }
     
-    return ret;
-}
+    return ret;}
 
 -(CGFloat)bottomOfSection:(NSInteger)tarSection
 {

@@ -125,31 +125,19 @@
 }
 
 
+-(NSMutableAttributedString*(^)(CGFloat offset,NSRange range))if_setBaselineOffset
+{
+    return ^id(CGFloat offset,NSRange range){
+        NSDictionary *attribute = @{NSBaselineOffsetAttributeName:@(offset)};
+        [self setAttributes:attribute range:range];
+
+        return self;
+    };
+}
+
 -(CGFloat (^)(CGFloat width))if_getHeightInWidth
 {
     
-    
-//    return ^CGFloat(CGFloat width){
-//        if (width == 0) {
-//            NSAssert(FALSE, @"");
-//            return 0;
-//        }
-//        if (self.length == 0) {
-//            return 0;
-//        }
-//        NSTextStorage *textStorage = [[NSTextStorage alloc] initWithAttributedString:self];
-//        NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:CGSizeMake(width, CGFLOAT_MAX)];
-//        NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
-//        [layoutManager addTextContainer:textContainer];
-//        [textStorage addLayoutManager:layoutManager];
-//        [layoutManager glyphRangeForTextContainer:textContainer];
-//        CGSize size =  [layoutManager
-//                        usedRectForTextContainer:textContainer].size;
-//        return size.height;
-//        
-//        
-//    };
-
     
     return ^CGFloat(CGFloat width){
         if (width == 0) {
@@ -159,12 +147,34 @@
         if (self.length == 0) {
             return 0;
         }
+        NSTextStorage *textStorage = [[NSTextStorage alloc] initWithAttributedString:self];
+        NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:CGSizeMake(width, CGFLOAT_MAX)];
+        NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
+        [layoutManager addTextContainer:textContainer];
+        [textStorage addLayoutManager:layoutManager];
+        [layoutManager glyphRangeForTextContainer:textContainer];
+        CGSize size =  [layoutManager
+                        usedRectForTextContainer:textContainer].size;
+        return size.height;
         
         
-        CGRect textRect = [self boundingRectWithSize:CGSizeMake(width-1, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesDeviceMetrics context:nil];
-        return textRect.size.height;
-
     };
+
+    
+//    return ^CGFloat(CGFloat width){
+//        if (width == 0) {
+//            NSAssert(FALSE, @"");
+//            return 0;
+//        }
+//        if (self.length == 0) {
+//            return 0;
+//        }
+//        
+//        
+//        CGRect textRect = [self boundingRectWithSize:CGSizeMake(width-1, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesDeviceMetrics context:nil];
+//        return textRect.size.height;
+//
+//    };
 }
 
 
