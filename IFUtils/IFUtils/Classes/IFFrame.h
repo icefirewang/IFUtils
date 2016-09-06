@@ -2,7 +2,7 @@
 //  NCFrame.h
 //  NodeChat
 //
-//  Created by wangjian on 14-11-17.
+//  Created by icefire_wang on 14-11-17.
 //  Copyright (c) 2014年 jiayu. All rights reserved.
 //
 #import <Foundation/Foundation.h>

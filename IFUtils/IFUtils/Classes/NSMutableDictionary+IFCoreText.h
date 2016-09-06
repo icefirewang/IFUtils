@@ -2,8 +2,8 @@
 //  NSMutableDictionary+IFCoreText.h
 //  IFUtils
 //
-//  Created by wangjian on 16/5/13.
-//  Copyright © 2016年 wangjian. All rights reserved.
+//  Created by icefire_wang on 16/5/13.
+//  Copyright © 2016年 icefire_wang. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -20,6 +20,12 @@
 -(NSMutableDictionary*(^)(UIColor *color))if_coretextColor;
 -(NSMutableDictionary*(^)(UIFont *font))if_coretextFont;
 -(NSMutableDictionary*(^)(UIColor *color))if_coretextBgColor;
+-(NSMutableDictionary*(^)(CGFloat offset))if_baselineOffset;
+
+
+//-(NSMutableDictionary*)if_coretextTextColor:(UIColor*)color;
+//-(NSMutableDictionary*)if_coretextFont:(UIFont*)font;
+//-(NSMutableDictionary*)if_coretextBackgroundColor:(UIColor*)color;
 
 
 

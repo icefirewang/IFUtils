@@ -2,8 +2,8 @@
 //  IFDate.m
 //  JJUtils
 //
-//  Created by wangjian on 16/5/16.
-//  Copyright © 2016年 wangjian. All rights reserved.
+//  Created by icefire_wang on 16/5/16.
+//  Copyright © 2016年 icefire_wang. All rights reserved.
 //
 
 #import "IFDate.h"
@@ -96,7 +96,7 @@ NSString* zhNumber(NSInteger number)
 #pragma mark - interface
 
 /**
- *  @author 王健, 16-03-08 14:03:14
+ *  @author icefire_wang, 16-03-08 14:03:14
  *
  *  中国 星期几表示 ： 星期一，星期二。。。。
  *
@@ -114,7 +114,7 @@ NSString* zhNumber(NSInteger number)
 
 
 /**
- *  @author 王健, 16-03-24 15:03:01
+ *  @author icefire_wang, 16-03-24 15:03:01
  *
  *  中国年： 二零一
  *
@@ -136,7 +136,7 @@ NSString* zhNumber(NSInteger number)
 }
 
 /**
- *  @author 王健, 16-03-24 15:03:29
+ *  @author icefire_wang, 16-03-24 15:03:29
  *
  *  中文 月  十一 十二
  *
@@ -166,7 +166,7 @@ NSString* zhNumber(NSInteger number)
 
 
 /**
- *  @author 王健, 16-03-24 15:03:50
+ *  @author icefire_wang, 16-03-24 15:03:50
  *
  *  中文天   一  二  二十四
  *
@@ -201,7 +201,7 @@ NSString* zhNumber(NSInteger number)
 
 
 /**
- *  @author 王健, 16-05-16 14:05:01
+ *  @author icefire_wang, 16-05-16 14:05:01
  *
  *  当前年
  *

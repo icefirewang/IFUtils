@@ -2,13 +2,14 @@
 //  CoretextVIewController.m
 //  IFUtils
 //
-//  Created by wangjian on 16/5/13.
-//  Copyright © 2016年 wangjian. All rights reserved.
+//  Created by icefire_wang on 16/5/13.
+//  Copyright © 2016年 icefire_wang. All rights reserved.
 //
 
 #import "CoretextViewController.h"
 #import "NSMutableDictionary+IFCoreText.h"
 #import "NSMutableAttributedString+IFCoreText.h"
+#import "NSAttributedString+IFHeight.h"
 
 @interface CoretextViewController ()
 
@@ -36,19 +37,43 @@
     .if_setTextFont([UIFont systemFontOfSize:15],NSMakeRange(0, string1.length))
     .if_setTextColor([UIColor blackColor],NSMakeRange(0, string1.length))
     .if_setTextColor([UIColor blueColor],NSMakeRange(10, 10))
-    .if_setBackgroundColor([UIColor lightGrayColor],NSMakeRange(0, 5))
-    .if_setBaselineOffset(5,NSMakeRange(4, 20));
+    .if_setBackgroundColor([UIColor blueColor],NSMakeRange(0, 20))
+    .if_setBaselineOffset(2,NSMakeRange(0, string1.length))
+    .if_setBackgroundColor([UIColor yellowColor],NSMakeRange(40, 5))
+    .if_endAttributeSet();
+ 
     
     string1.if_insertImage([UIImage imageNamed:@"haixiu"],CGRectMake(5, 5, 40, 20),10);
     
-    CGFloat height =   string1.if_getHeightInWidth(300);
+    CGFloat height =   [string1 heightInWidth:300];
     
-    UILabel *lb2 = [[UILabel alloc] initWithFrame:CGRectMake(10, 200, 300, height)];
+    UILabel *lb2 = [[UILabel alloc] initWithFrame:CGRectMake(10, 120, 300, height)];
     lb2.numberOfLines = 0;
     lb2.backgroundColor = [UIColor brownColor];
     lb2.attributedText = string1;
     lb2.lineBreakMode = NSLineBreakByCharWrapping;
     [self.view addSubview:lb2];
+    
+    
+    NSString *text2 = @"啊哦额一五一伯婆吗风的特拿了个七夕";//,啊哦额一五一伯婆吗风的特拿了个七夕,啊哦额一五一伯婆吗风的特拿了个七夕啊哦额一五一伯婆吗风的特拿了个七夕,啊哦额一五一伯婆吗风的特拿了个七夕";
+    
+    NSMutableDictionary *attribute2 = [[NSMutableDictionary alloc] init];
+    attribute2.if_coretextLineHeight(20)
+    .if_coretextFont([UIFont systemFontOfSize:15])
+    .if_baselineOffset(-10).if_coretextColor([UIColor blueColor]);
+    
+    NSAttributedString *attributedString2 = [[NSAttributedString alloc] initWithString:text2 attributes:attribute2];
+    
+    CGFloat height2 = [attributedString2 heightInWidth:(300)];
+    UILabel *lable2 = [[UILabel alloc] initWithFrame:CGRectMake(10, 400, 300, height2)];
+    lable2.backgroundColor = [UIColor yellowColor];
+    lable2.numberOfLines = 0;
+    [lable2 setAttributedText:attributedString2];
+    [self.view addSubview:lable2];
+    
+    
+    
+    
     
 }
 

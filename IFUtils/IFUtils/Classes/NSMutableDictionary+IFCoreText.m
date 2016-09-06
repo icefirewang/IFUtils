@@ -2,8 +2,8 @@
 //  NSMutableDictionary+IFCoreText.h
 //  IFUtils
 //
-//  Created by wangjian on 16/5/13.
-//  Copyright © 2016年 wangjian. All rights reserved.
+//  Created by icefire_wang on 16/5/13.
+//  Copyright © 2016年 icefire_wang. All rights reserved.
 //
 
 #import "NSMutableDictionary+IFCoreText.h"
@@ -66,6 +66,15 @@
     };
 }
 
+-(NSMutableDictionary*(^)(CGFloat offset))if_baselineOffset
+{
+    return ^id(CGFloat offset){
+        self[NSBaselineOffsetAttributeName] = @(offset);
+        return self;
+    };
+}
+
+
 
 -(NSMutableDictionary*)if_coretextLineHeight:(CGFloat)height
 {
@@ -81,35 +90,6 @@
     return self;
 }
 
--(NSMutableDictionary*)if_coretextTextColor:(UIColor*)color
-{
-    if (color == nil) {
-        NSAssert(FALSE, @"");
-        return self;
-    }
-    self[NSForegroundColorAttributeName] = color;
-    return self;
-}
 
--(NSMutableDictionary*)if_coretextFont:(UIFont*)font
-{
-    if (font == nil) {
-        NSAssert(FALSE, @"");
-        return self;
-    }
-
-    self[NSFontAttributeName] = font;
-    return self;
-}
--(NSMutableDictionary*)if_coretextBackgroundColor:(UIColor*)color
-{
-    
-    if (color == nil) {
-        NSAssert(FALSE, @"");
-        return self;
-    }
-    self[NSBackgroundColorAttributeName] = color;
-    return self;
-}
 
 @end

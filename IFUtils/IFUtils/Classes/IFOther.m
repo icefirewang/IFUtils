@@ -2,14 +2,14 @@
 //  IFOther.m
 //  JJUtils
 //
-//  Created by wangjian on 16/5/16.
-//  Copyright © 2016年 wangjian. All rights reserved.
+//  Created by icefire_wang on 16/5/16.
+//  Copyright © 2016年 icefire_wang. All rights reserved.
 //
 
 #import "IFOther.h"
 
 /**
- *  @author 王健, 16-05-16 14:05:21
+ *  @author icefire_wang, 16-05-16 14:05:21
  *
  *  浮点数是否含有小数位
  *
@@ -29,7 +29,7 @@ BOOL if_isFloatHasDecimal(double num)
 
 
 /**
- *  @author 王健, 16-05-16 14:05:50
+ *  @author icefire_wang, 16-05-16 14:05:50
  *
  *  创建一个 UUID
  *
@@ -48,7 +48,7 @@ NSString * if_createUUID()
 
 
 /**
- *  @author 王健, 16-05-16 15:05:12
+ *  @author icefire_wang, 16-05-16 15:05:12
  *
  *  获取 缓存路径
  *
@@ -63,7 +63,7 @@ NSString * if_cachePath()
 
 
 /**
- *  @author 王健, 16-05-16 15:05:56
+ *  @author icefire_wang, 16-05-16 15:05:56
  *
  *
  *
@@ -78,7 +78,7 @@ NSString * if_libraryPath()
 
 
 /**
- *  @author 王健, 16-05-16 15:05:56
+ *  @author icefire_wang, 16-05-16 15:05:56
  *
  *
  *

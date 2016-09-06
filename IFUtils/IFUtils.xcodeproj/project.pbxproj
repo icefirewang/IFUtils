@@ -42,6 +42,7 @@
 		C9B5609E1CEAA672006048EF /* Mask2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9B5609B1CEAA672006048EF /* Mask2@2x.png */; };
 		C9B5609F1CEAA672006048EF /* haixiu.png in Resources */ = {isa = PBXBuildFile; fileRef = C9B5609C1CEAA672006048EF /* haixiu.png */; };
 		C9B560A11CEAA6F2006048EF /* Animal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9B560A01CEAA6F2006048EF /* Animal.jpg */; };
+		C9D5BB5A1D7D68DE009A0EBB /* NSAttributedString+IFHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D5BB591D7D68DE009A0EBB /* NSAttributedString+IFHeight.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,8 @@
 		C9B5609B1CEAA672006048EF /* Mask2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mask2@2x.png"; sourceTree = "<group>"; };
 		C9B5609C1CEAA672006048EF /* haixiu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haixiu.png; sourceTree = "<group>"; };
 		C9B560A01CEAA6F2006048EF /* Animal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Animal.jpg; sourceTree = "<group>"; };
+		C9D5BB581D7D68DE009A0EBB /* NSAttributedString+IFHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+IFHeight.h"; sourceTree = "<group>"; };
+		C9D5BB591D7D68DE009A0EBB /* NSAttributedString+IFHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+IFHeight.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +259,8 @@
 				C9B5606D1CEAA089006048EF /* NSMutableAttributedString+IFCoreText.m */,
 				C9B5606E1CEAA089006048EF /* NSMutableDictionary+IFCoreText.h */,
 				C9B5606F1CEAA089006048EF /* NSMutableDictionary+IFCoreText.m */,
+				C9D5BB581D7D68DE009A0EBB /* NSAttributedString+IFHeight.h */,
+				C9D5BB591D7D68DE009A0EBB /* NSAttributedString+IFHeight.m */,
 				C9B560701CEAA089006048EF /* NSString+IFJSON.h */,
 				C9B560711CEAA089006048EF /* NSString+IFJSON.m */,
 				C9B560721CEAA089006048EF /* NSString+IFUtil.h */,
@@ -461,6 +466,7 @@
 				C9B5608B1CEAA089006048EF /* NSString+IFJSON.m in Sources */,
 				C9B5608F1CEAA089006048EF /* UILabel+IFAdjust.m in Sources */,
 				C9B5607D1CEAA089006048EF /* IFCheckUtil.m in Sources */,
+				C9D5BB5A1D7D68DE009A0EBB /* NSAttributedString+IFHeight.m in Sources */,
 				C9B5608D1CEAA089006048EF /* UIImage+IFColor.m in Sources */,
 				C9B560821CEAA089006048EF /* IFMD5.m in Sources */,
 			);
@@ -690,6 +696,7 @@
 				C9B560481CEAA04D006048EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9B560491CEAA04D006048EF /* Build configuration list for PBXNativeTarget "IFUtilsTests" */ = {
 			isa = XCConfigurationList;
@@ -698,6 +705,7 @@
 				C9B5604B1CEAA04D006048EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9B5604C1CEAA04D006048EF /* Build configuration list for PBXNativeTarget "IFUtilsUITests" */ = {
 			isa = XCConfigurationList;
@@ -706,6 +714,7 @@
 				C9B5604E1CEAA04D006048EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -2,8 +2,8 @@
 //  IFUtilsTests.m
 //  IFUtilsTests
 //
-//  Created by wangjian on 16/5/17.
-//  Copyright © 2016年 wangjian. All rights reserved.
+//  Created by icefire_wang on 16/5/17.
+//  Copyright © 2016年 icefire_wang. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

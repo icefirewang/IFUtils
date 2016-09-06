@@ -2,7 +2,7 @@
 //  NSMutableAttributedString+IFCoreText.h
 //  IFUtils
 //
-//  Created by wangjian on 16/5/13.
+//  Created by icefire_wang on 16/5/13.
 //  Copyright © 2016年 icefire_wang. All rights reserved.
 //
 
@@ -55,6 +55,14 @@
  */
 -(void (^)(UIImage *image,CGRect bounds,NSUInteger index))if_insertImage;
 
+
+
+/**
+ *  @author icefire_wang, 16-09-05 17:09:03
+ *
+ *  结束属性设置
+ */
+-(NSMutableAttributedString*(^)(void))if_endAttributeSet;
 
 /**
  *  @author icefire_wang 16-05-13 17:05:11

@@ -2,8 +2,8 @@
 //  IFDate.h
 //  JJUtils
 //
-//  Created by wangjian on 16/5/16.
-//  Copyright © 2016年 wangjian. All rights reserved.
+//  Created by icefire_wang on 16/5/16.
+//  Copyright © 2016年 icefire_wang. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -40,7 +40,7 @@ typedef NS_ENUM(NSInteger,IFNoon){
 
 
 /**
- *  @author 王健, 16-02-23 11:02:34
+ *  @author icefire_wang, 16-02-23 11:02:34
  *
  *  必要初始化函数
  *
@@ -56,7 +56,7 @@ typedef NS_ENUM(NSInteger,IFNoon){
 
 
 /**
- *  @author 王健, 16-03-08 14:03:14
+ *  @author icefire_wang, 16-03-08 14:03:14
  *
  *  中国 星期几表示 ： 星期一，星期二。。。。
  *
@@ -66,7 +66,7 @@ typedef NS_ENUM(NSInteger,IFNoon){
 
 
 /**
- *  @author 王健, 16-03-24 15:03:01
+ *  @author icefire_wang, 16-03-24 15:03:01
  *
  *  中国年： 二零一
  *
@@ -75,7 +75,7 @@ typedef NS_ENUM(NSInteger,IFNoon){
 -(NSString*)zhYear;
 
 /**
- *  @author 王健, 16-03-24 15:03:29
+ *  @author icefire_wang, 16-03-24 15:03:29
  *
  *  中文 月  十一 十二
  *
@@ -84,7 +84,7 @@ typedef NS_ENUM(NSInteger,IFNoon){
 -(NSString*)zhMonth;
 
 /**
- *  @author 王健, 16-03-24 15:03:50
+ *  @author icefire_wang, 16-03-24 15:03:50
  *
  *  中文天   一  二  二十四
  *

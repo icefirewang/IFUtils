@@ -2,8 +2,8 @@
 //  IFDeviceInfo.m
 //  JJUtils
 //
-//  Created by wangjian on 16/5/16.
-//  Copyright © 2016年 wangjian. All rights reserved.
+//  Created by icefire_wang on 16/5/16.
+//  Copyright © 2016年 icefire_wang. All rights reserved.
 //
 
 #import "IFDeviceInfo.h"
@@ -24,7 +24,7 @@ CGFloat if_iOSVersion()
 }
 
 /**
- *  @author 王健, 16-05-16 14:05:21
+ *  @author icefire_wang, 16-05-16 14:05:21
  *
  *  设备型号
  *
@@ -49,7 +49,7 @@ NSString * if_deviceMode()
 }
 
 /**
- *  @author 王健, 16-05-16 14:05:52
+ *  @author icefire_wang, 16-05-16 14:05:52
  *
  *  设备屏幕类型
  *

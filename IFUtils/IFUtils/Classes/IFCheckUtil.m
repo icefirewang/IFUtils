@@ -2,8 +2,8 @@
 //  CheckUtil.m
 //  KKCartoon
 //
-//  Created by wangjian on 15/2/18.
-//  Copyright (c) 2015年 wangjian. All rights reserved.
+//  Created by icefire_wang on 15/2/18.
+//  Copyright (c) 2015年 icefire_wang. All rights reserved.
 //
 
 #import "IFCheckUtil.h"

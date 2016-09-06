@@ -2,30 +2,74 @@
 //  NSMutableAttributedString+IFCoreText.m
 //  IFUtils
 //
-//  Created by wangjian on 16/5/13.
-//  Copyright © 2016年 wangjian. All rights reserved.
+//  Created by icefire_wang on 16/5/13.
+//  Copyright © 2016年 icefire_wang. All rights reserved.
 //
 
 #import "NSMutableAttributedString+IFCoreText.h"
 #import "MethodSwizzle.h"
+#import <objc/runtime.h>
+
+
+static const NSString *kAttributeName = @"AttributeName";
+static const NSString *kAttribteRange = @"AttributeRange";
+static const NSString *kAttributeValue = @"AttributeValue";
+
+static char key_attributeArray;
+
+@interface NSMutableAttributedString ()
+
+
+@property (nonatomic,strong) NSMutableArray *attributes;
+
+@end
+
+
 @implementation NSMutableAttributedString (IFCoreText)
 
 
-
-
--(instancetype)initWithString_if:(NSString *)str attributes:(NSDictionary<NSString *,id> *)attrs
+-(NSMutableArray*)attributes
 {
-    self = [self initWithString_if:str attributes:attrs];
-    return self;
+    id ret = objc_getAssociatedObject(self, &key_attributeArray);
+    if (ret == nil) {
+        NSMutableArray *dict = [[NSMutableArray alloc] init];
+        objc_setAssociatedObject(self, &key_attributeArray, dict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        ret = dict;
+    }
+    return ret;
 }
 
 
--(instancetype)initWithString_if:(NSString *)str
+-(NSMutableAttributedString*(^)(void))if_endAttributeSet
 {
-    self = [self initWithString_if:str];
-    return self;
+    return ^id(void){
+              
+        [self.attributes sortUsingComparator:^NSComparisonResult(NSDictionary * _Nonnull obj1, NSDictionary *  _Nonnull obj2) {
+            
+            NSString *key1 = [obj1 objectForKey:kAttributeName];
+            NSString *key2 = [obj2 objectForKey:kAttributeName];
+            
+            // 如果先设置了 BackgroundColor 再设置 Baseline offset  back ground color 会无效
+            if ([key1 isEqualToString:NSBackgroundColorAttributeName] && [key2 isEqualToString:NSBaselineOffsetAttributeName]) {
+                return NSOrderedDescending;
+            }else{
+                return NSOrderedSame;
+            }
+        }];
+        
+        [self.attributes enumerateObjectsUsingBlock:^(NSDictionary *  _Nonnull dict, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            NSRange range = [[dict objectForKey:kAttribteRange] rangeValue];
+            id value = [dict objectForKey:kAttributeValue];
+            NSString *name = [dict objectForKey:kAttributeName];
+            NSDictionary *att = @{name:value};
+            [self setAttributes:att range:range];
+            
+        }];
+        
+        return self;
+    };
 }
-
 
 -(NSMutableAttributedString* (^)(CGFloat height,NSRange range))if_setLineHeight
 {
@@ -43,7 +87,14 @@
         style.lineHeightMultiple = height;
         style.maximumLineHeight = height;
         style.minimumLineHeight = height;
-        [self addAttribute:NSParagraphStyleAttributeName value:style range:range];
+        
+        NSDictionary *attribute = @{
+                                     kAttributeName : NSParagraphStyleAttributeName,
+                                     kAttribteRange : [NSValue valueWithRange:range],
+                                     kAttributeValue :@(height)
+                                     };
+        [self.attributes addObject:attribute];
+        //[self addAttribute:NSParagraphStyleAttributeName value:style range:range];
         return self;
     };
 }
@@ -59,7 +110,13 @@
             NSAssert(FALSE, @"");
             return self;
         }
-        [self addAttribute:NSForegroundColorAttributeName value:color range:range];
+        NSDictionary *attribute = @{
+                                    kAttributeName : NSForegroundColorAttributeName,
+                                    kAttribteRange : [NSValue valueWithRange:range],
+                                    kAttributeValue :color
+                                    };
+        [self.attributes addObject:attribute];
+       // [self addAttribute:NSForegroundColorAttributeName value:color range:range];
         return self;
     };
 }
@@ -76,8 +133,13 @@
             NSAssert(FALSE, @"");
             return self;
         }
-        
-        [self addAttribute:NSFontAttributeName value:font range:range];
+        NSDictionary *attribute = @{
+                                    kAttributeName : NSForegroundColorAttributeName,
+                                    kAttribteRange : [NSValue valueWithRange:range],
+                                    kAttributeValue :font
+                                    };
+        [self.attributes addObject:attribute];
+        //[self addAttribute:NSFontAttributeName value:font range:range];
         return self;
     };
 }
@@ -95,8 +157,13 @@
             NSAssert(FALSE, @"");
             return self;
         }
-        
-        [self addAttribute:NSBackgroundColorAttributeName value:color range:range];
+        NSDictionary *attribute = @{
+                                    kAttributeName : NSBackgroundColorAttributeName,
+                                    kAttribteRange : [NSValue valueWithRange:range],
+                                    kAttributeValue :color
+                                    };
+        [self.attributes addObject:attribute];
+        //[self addAttribute:NSBackgroundColorAttributeName value:color range:range];
         return self;
     };
 }
@@ -128,7 +195,15 @@
 -(NSMutableAttributedString*(^)(CGFloat offset,NSRange range))if_setBaselineOffset
 {
     return ^id(CGFloat offset,NSRange range){
-        NSDictionary *attribute = @{NSBaselineOffsetAttributeName:@(offset)};
+        
+        NSDictionary *attribute = @{
+                                    kAttributeName : NSBaselineOffsetAttributeName,
+                                    kAttribteRange : [NSValue valueWithRange:range],
+                                    kAttributeValue :@(offset)
+                                    };
+        [self.attributes addObject:attribute];
+        
+      //  NSDictionary *attribute = @{NSBaselineOffsetAttributeName:@(offset)};
         [self setAttributes:attribute range:range];
 
         return self;

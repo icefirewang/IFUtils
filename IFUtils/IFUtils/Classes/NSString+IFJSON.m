@@ -2,8 +2,8 @@
 //  NSString+IFJSON.m
 //  JJUtils
 //
-//  Created by wangjian on 16/5/16.
-//  Copyright © 2016年 wangjian. All rights reserved.
+//  Created by icefire_wang on 16/5/16.
+//  Copyright © 2016年 icefire_wang. All rights reserved.
 //
 
 #import "NSString+IFJSON.h"

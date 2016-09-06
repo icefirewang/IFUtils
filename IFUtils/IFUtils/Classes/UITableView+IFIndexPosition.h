@@ -2,8 +2,8 @@
 //  UITableView+IFIndexPosition.h
 //  
 //
-//  Created by wangjian on 16/5/16.
-//  Copyright © 2016年 wangjian. All rights reserved.
+//  Created by icefire_wang on 16/5/16.
+//  Copyright © 2016年 icefire_wang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -13,7 +13,7 @@
 
 
 /**
- *  @author 王健, 16-03-02 10:03:54
+ *  @author icefire_wang, 16-03-02 10:03:54
  *
  *  目标section 的底部
  *
@@ -26,7 +26,7 @@
 
 
 /**
- *  @author 王健, 16-03-02 10:03:29
+ *  @author icefire_wang, 16-03-02 10:03:29
  *
  *  顶部的Y
  *
